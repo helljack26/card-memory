@@ -18,11 +18,8 @@ body {
   font-family: sans-serif;
 }
 
-body p {
-  font-size: 0.5rem;
-}
-
-body .small-block {
+body .left-block {
+  width: 200px;
   position: relative;
 }
 
@@ -38,17 +35,13 @@ body .small {
 
 body h1 {
   color: black;
-  -webkit-box-shadow: 0 -150px 70px -120px teal inset, 0 -220px 70px -120px yellowgreen inset, 0 -280px 70px -120px gold inset;
-          box-shadow: 0 -150px 70px -120px teal inset, 0 -220px 70px -120px yellowgreen inset, 0 -280px 70px -120px gold inset;
-  -webkit-animation: colors 4s infinite alternate;
-          animation: colors 4s infinite alternate;
 }
 
 body button {
   border: none;
   position: absolute;
   top: 40px;
-  left: -55px;
+  left: 45px;
   width: 110px;
   height: 110px;
   border-radius: 50%;
@@ -72,7 +65,7 @@ body button:hover {
 }
 
 body .block {
-  margin-left: 150px;
+  margin-left: 40px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[4];
@@ -82,19 +75,18 @@ body .block {
   row-gap: 15px;
 }
 
-body .block .card {
-  width: 140px;
-  height: 140px;
-  border-radius: 15px;
-  cursor: pointer;
-}
-
 .card-cover {
+  cursor: pointer;
   background: crimson;
   -webkit-box-shadow: 0 -150px 70px -120px teal inset, 0 -220px 70px -120px yellowgreen inset, 0 -280px 70px -120px gold inset;
           box-shadow: 0 -150px 70px -120px teal inset, 0 -220px 70px -120px yellowgreen inset, 0 -280px 70px -120px gold inset;
   -webkit-animation: background 4s infinite alternate;
           animation: background 4s infinite alternate;
+}
+
+.card-cover:hover {
+  -webkit-filter: saturate(5);
+          filter: saturate(5);
 }
 
 @-webkit-keyframes background {
@@ -156,14 +148,14 @@ body .block .card {
 }
 
 .card {
+  width: 140px;
+  height: 140px;
+  border-radius: 15px;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
   display: inline-block;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
   -moz-backface-visibility: hidden;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
@@ -250,7 +242,7 @@ body .block .card {
           align-items: center;
 }
 
-.flip-disable {
+.disable {
   pointer-events: none;
 }
 /*# sourceMappingURL=main.css.map */
