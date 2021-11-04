@@ -1,7 +1,5 @@
 class CardGame {
-    constructor() {
-        var self = this;
-    }
+    
     // Card content init method
     cardContentInit() {
         $( '.front' ).css( 'background-color', 'white' )
@@ -40,7 +38,6 @@ class CardGame {
             cardArray[ i ].innerText = contentArray[ i ]
         }
     }
-    // Check game ending
 
     // Playing process
     playingProcess() {
