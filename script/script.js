@@ -4,6 +4,8 @@ class CardGame {
     }
     // Card content init method
     cardContentInit() {
+        $('.front').css('background-color', 'white')
+        $('.side ').css('background-color', 'white')
         // Temp Array
         let contentArray = [];
         let cardArray = $( '.back-rgbValue' );
@@ -65,13 +67,16 @@ class CardGame {
                         count = 0;
                         firstCard.classList.add( 'disable' );
                         secondCard.classList.add( 'disable' );
+                        firstCard.childNodes[ 1 ].style.backgroundColor = firstCard.textContent
+                        secondCard.childNodes[ 1 ].style.backgroundColor = secondCard.textContent
                     }
                     $( '.active' ).removeClass( 'disable' );
                 }, 2000 )
-                $( '.start-button' ).click( function () {
+                $( '.start-button' ).click( function (e) {
                     clearTimeout( timeout, 0 )
                     count = 0;
                 } )
+
             }
         } )
     }
@@ -87,7 +92,9 @@ class CardGame {
             btn.textContent = 'Restart';
             btn.style.backgroundColor = 'white';
             $( '.card' ).removeClass( 'active' )
+
         } else {
+
             btn.classList.add( 'disable' );
             btn.textContent = 'Finish';
             btn.style.backgroundColor = 'tomato';
