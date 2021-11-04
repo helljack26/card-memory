@@ -65,6 +65,10 @@ body button:hover {
 }
 
 body .block {
+  position: relative;
+}
+
+body .block-container {
   margin-left: 40px;
   display: -ms-grid;
   display: grid;
@@ -73,6 +77,35 @@ body .block {
   -webkit-column-gap: 15px;
           column-gap: 15px;
   row-gap: 15px;
+}
+
+.message {
+  position: absolute;
+  text-transform: uppercase;
+  font-weight: bold;
+  top: 40%;
+  border-radius: 15px;
+  left: 40%;
+  font-size: 1.2rem;
+  width: 230px;
+  height: 70px;
+  background-color: tomato;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.message p {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .card-cover {

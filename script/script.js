@@ -1,11 +1,11 @@
 class CardGame {
     constructor() {
-        this.timeout
+        var self = this;
     }
     // Card content init method
     cardContentInit() {
-        $('.front').css('background-color', 'white')
-        $('.side ').css('background-color', 'white')
+        $( '.front' ).css( 'background-color', 'white' )
+        $( '.side ' ).css( 'background-color', 'white' )
         // Temp Array
         let contentArray = [];
         let cardArray = $( '.back-rgbValue' );
@@ -40,6 +40,7 @@ class CardGame {
             cardArray[ i ].innerText = contentArray[ i ]
         }
     }
+    // Check game ending
 
     // Playing process
     playingProcess() {
@@ -71,12 +72,33 @@ class CardGame {
                         secondCard.childNodes[ 1 ].style.backgroundColor = secondCard.textContent
                     }
                     $( '.active' ).removeClass( 'disable' );
+                    // If win
+                    if ( $( '.card' ).filter( '.disable' ).length == 12 ) {
+                        $( '.start-button' ).text( 'Start' )
+                        const message = document.createElement( 'div' )
+                        message.classList.add( 'message' )
+                        message.innerHTML = '<p>Yeees!!! You win!</p>'
+                        $( '.block-container' ).fadeTo( "slow", 0.2 )
+                        $( 'main' ).append( message )
+                        $( '.message' ).fadeIn()
+                    }
                 }, 2000 )
-                $( '.start-button' ).click( function (e) {
+                // If finish click
+                $( '.start-button' ).click( function ( e ) {
                     clearTimeout( timeout, 0 )
                     count = 0;
+                    if ( e.currentTarget.innerText == 'FINISH' ) {
+                        $( '.front' ).css( 'background-color', 'white' )
+                        $( '.side ' ).css( 'background-color', 'white' )
+                        $( '.block-container' ).fadeTo( "slow", 1 )
+                        $( '.message' ).fadeOut()
+                        $( '.card' ).removeClass( 'active' );
+                        $( '.card' ).removeClass( 'disable' );
+                        setTimeout( function () {
+                            $( '.card' ).addClass( 'active' );
+                        }, 2000 )
+                    }
                 } )
-
             }
         } )
     }
@@ -92,9 +114,7 @@ class CardGame {
             btn.textContent = 'Restart';
             btn.style.backgroundColor = 'white';
             $( '.card' ).removeClass( 'active' )
-
         } else {
-
             btn.classList.add( 'disable' );
             btn.textContent = 'Finish';
             btn.style.backgroundColor = 'tomato';
@@ -108,7 +128,6 @@ class CardGame {
                 this.playingProcess()
             } )
         }
-
     }
 }
 
